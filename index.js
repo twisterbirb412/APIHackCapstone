@@ -9,14 +9,14 @@ const searchURL = 'https://api.nasa.gov/planetary/earth/imagery';
 
 
 function watchAddButton() {
-    $('addButton').submit(event => {
+    $('.addButton').on('click', event => {
         event.preventDefault();
         addDateInput();
     })
 }
 
 function watchForm() {
-    $('form').submit(event => {
+    $('.submitButton').on('click', event => {
       event.preventDefault();
   
       //Location search parameters
@@ -25,30 +25,62 @@ function watchForm() {
       const searchLong = $('#js-search-long').val();
   
       //eitherCityOrLatLong(searchCity, searchLat, searchLong);
+      getImages(searchLat, searchLong);
+      resetDateInputs();
     });
-    getImages();
+}
 
-//function eitherCityOrLatLong (city, lat, long) {
-    //This function deciphers the input to determine which paramets to search by
-    //putting this feature on pause until I'm ready to circle back to it
-//}
+function aboutClick() {
+    $('.about').on('click', event => {
+        event.preventDefault();
+
+        aboutScreenPopUp();
+    })
+}
+
+function okayClick() {
+    $('.menuPopUp').on('click', "menuScreen.okayButton",  event => {
+        event.preventDefault();
+
+        clearScreenPopUp();
+        console.log('okayButton executed');
+    });
 }
 
 function addDateInput() {
-    //when the user hits the Add Date button
-    //it creates another input type for date
-    //also dateCounter++
+    dateCounter++;
+
+    $('.dateInputArea').append(
+       ` <label for="max-results">Dates of imagery</label>`+
+        `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>`
+    );
 }
+
+function resetDateInputs() {
+    dateCounter = 0;
+    console.log(dateCounter);
+
+    $('.dateInputArea').empty();
+
+    $('.dateInputArea').append(
+        ` <label for="max-results">Dates of imagery</label>`+
+         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>`
+     );
+}
+
 
 function getDateParams() {
     let dateParams = {};
     let searchDate = 0;
 
     for (let i=0; i <=dateCounter; i++) {
-        searchDate = $('date'+'i').val();
+        searchDate = $('#date'+i).val();
+        console.log(searchDate);
 
-        dateParams.push({i: searchDate});
+        dateParams[i] = searchDate;
     }
+
+    console.log(dateParams);
 
     return dateParams;
 }
@@ -56,7 +88,7 @@ function getDateParams() {
 function getImages(lat, long) {
     const locationParam= {
       lat: lat,
-      long: long,
+      lon: long,
     };
 
     //need to make a for Loop for if there is more than one image
@@ -65,11 +97,19 @@ function getImages(lat, long) {
     $('#results-list').empty();
 
     for (let i=0; i <=dateCounter; i++) {
-        let params = locationParem;
+        
+        //i need to create an object with keys lat, long, date
+        let paramObject = JSON.parse(JSON.stringify(locationParam));
 
-        params.push(dateParems[i])
-        const queryString = formatQueryParams(params);
-        const url = searchURL + '?' + queryString;
+        console.log(paramObject);
+
+        paramObject.date = String(dateParams[i]);
+
+        console.log(paramObject);
+
+        //formatting the query
+        const queryString = formatQueryParams(paramObject);
+        const url = searchURL + '?' + queryString + '&api_key=' + apiKey;
     
         console.log(url);
 
@@ -83,10 +123,11 @@ function formatQueryParams(params) {
 
     //this is where I will create the string needed for the url search
 
-  const queryItems = Object.keys(params)
+  const paramQuery = Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
 
-  return queryItems.join('&');
+  return paramQuery.join('&');
+  
 }
 
 function fetchImage(url) {
@@ -110,17 +151,37 @@ function displayResults(responseJson) {
 
   //create html text to display the image
     $('#results-list').append(
-      //`<li><h3><a href="${responseJson.articles[i].url}">${responseJson.articles[i].title}</a></h3>
-      //<p>${responseJson.articles[i].source.name}</p>
-      //<p>By ${responseJson.articles[i].author}</p>
-      //<p>${responseJson.articles[i].description}</p>
-      //<img src='${responseJson.articles[i].urlToImage}'>
-      //</li>`
-    
-  //display the results section 
+      `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
+      `<p>Image Date: ${responseJson.date}</p>` + 
+      `<a href="">Download Image</a>`
+      `</li>`
     )
   $('#results').removeClass('hidden');
 }
 
+function aboutScreenPopUp() {
+    $('.menuPopUp').removeClass('hidden');
 
-$(watchForm);
+    $('.menuPopUp').append(
+        `<div class="menuScreen">` + 
+            `<h1>About</h1>` + 
+            `<p>This is where I will put detailed instructions on the purpose of this page and how to use it</p>` +
+            `<button type="submit" class="okayButton">Okay</button>` + 
+        `</div>`
+    );
+}
+
+function clearScreenPopUp() {
+    $('.menuPopUp').empty();
+
+    $('.menuPopUp').addClass('hidden');
+}
+
+function runPage() {
+    watchForm();
+    watchAddButton();
+    aboutClick();
+    okayClick();
+}
+
+$(runPage);

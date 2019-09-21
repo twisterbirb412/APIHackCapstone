@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Satellite Imagery Search</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="menuBar" role="navigation">
+        <p class='about menuItem'>About</p>
+    </div>
+    <div class='menuPopUp hidden'></div>
     <div class="container">
-        <h1>Satellite Image Locator</h1>
+        <h1 class="title">Satellite Image Locator</h1>
 
         <form id="js-form">
-            <label for="search-term">Search Location</label>
-            <input type="text" name="search-city" id="js-search-term"> <p>OR</p>
-
             <label for="search-term">Latitude</label>
-            <input type="float" name="search-lat" id="js-search-lat">
+            <input type="float" name="search-lat" id="js-search-lat" value="40.1" >
             <label for="search-term">Longitude</label>
-            <input type="float" name="search-long" id="js-search-long">
+            <input type="float" name="search-long" id="js-search-long" value="-86.0">
 
-            <label for="max-results">Dates of imagery</label>
-            <input type="date" name="date" id="date0" required>
+            <div class="dateInputArea">
+                <label for="max-results">Dates of imagery</label>
+                <input type="date" name="date" value="2014-02-20" id="date0" required>
+            </div>
 
             <button type="submit" class="addButton">Add date</button>
 
-            <input type="submit" value="Search">
+            <button type="submit" class="submitButton">Search</button>
         </form>
 
 

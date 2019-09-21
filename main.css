@@ -5,6 +5,36 @@
   body {
     font-family: 'Roboto', sans-serif;
   }
+
+  .menuBar *{
+    background-color: gray;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;   
+  }
+
+    .title {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+  .container {
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid black;
+  }
+
+  form {
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+
+  .dateInputArea {
+      margin: 10px;
+      text-align: left; 
+      display: block;
+  }
   
   button, input[type="text"] {
     padding: 5px;
@@ -33,6 +63,26 @@
     margin: 0 auto;
   }
   
+.menuPopUp {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    left: 5%;
+    top: 5%;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+.menuScreen button {
+    margin-left: 90%;
+    margin-bottom: 10%;
+}
+
+.menuScreen h1 {
+    text-align: center;
+}
+
+
   .error-message {
       color: red;
   }
