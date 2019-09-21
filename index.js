@@ -39,7 +39,7 @@ function aboutClick() {
 }
 
 function okayClick() {
-    $('.menuPopUp').on('click', "menuScreen.okayButton",  event => {
+    $('.menuPopUp').on('click', "okayButton",  event => {
         event.preventDefault();
 
         clearScreenPopUp();
@@ -153,7 +153,7 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
       `<p>Image Date: ${responseJson.date}</p>` + 
-      `<a href="">Download Image</a>`
+      //`<a href="">Download Image</a>`
       `</li>`
     )
   $('#results').removeClass('hidden');
