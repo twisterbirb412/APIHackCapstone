@@ -35,11 +35,12 @@ function aboutClick() {
         event.preventDefault();
 
         aboutScreenPopUp();
+        okayClick();
     })
 }
 
 function okayClick() {
-    $('.menuPopUp').on('click', "okayButton",  event => {
+    $('.okayButton').on('click', event => {
         event.preventDefault();
 
         clearScreenPopUp();
@@ -51,8 +52,10 @@ function addDateInput() {
     dateCounter++;
 
     $('.dateInputArea').append(
-       ` <label for="max-results">Dates of imagery</label>`+
-        `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>`
+        `<div class="dateDiv">` + 
+       ` <label for="max-results">Date</label>`+
+        `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
+        `</div>` 
     );
 }
 
@@ -63,8 +66,10 @@ function resetDateInputs() {
     $('.dateInputArea').empty();
 
     $('.dateInputArea').append(
-        ` <label for="max-results">Dates of imagery</label>`+
-         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>`
+        `<div class="dateDiv">` + 
+        ` <label for="max-results">Date</label>`+
+         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
+         `</div>` 
      );
 }
 
@@ -153,7 +158,9 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
       `<p>Image Date: ${responseJson.date}</p>` + 
-      //`<a href="">Download Image</a>`
+      //`<form method="get" action="${responseJson.url}">
+      //  <button type="submit">Download Image</button>
+      //</form>` + 
       `</li>`
     )
   $('#results').removeClass('hidden');
@@ -166,6 +173,7 @@ function aboutScreenPopUp() {
         `<div class="menuScreen">` + 
             `<h1>About</h1>` + 
             `<p>This is where I will put detailed instructions on the purpose of this page and how to use it</p>` +
+            `<p>Longitude and Latitude are entered in decimal form (- values for W or S values)</p>` + 
             `<button type="submit" class="okayButton">Okay</button>` + 
         `</div>`
     );
@@ -175,13 +183,14 @@ function clearScreenPopUp() {
     $('.menuPopUp').empty();
 
     $('.menuPopUp').addClass('hidden');
+
+    document.removeEventListener("on", clearScreenPopUp, false);
 }
 
 function runPage() {
     watchForm();
     watchAddButton();
     aboutClick();
-    okayClick();
 }
 
 $(runPage);

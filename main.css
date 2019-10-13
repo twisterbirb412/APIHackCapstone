@@ -28,19 +28,29 @@
   form {
       margin-left: 10%;
       margin-right: 10%;
+      display: block
   }
 
   .dateInputArea {
-      margin: 10px;
-      text-align: left; 
+      display: block;
+      text-align: center;
+    
+  }
+
+  .dateDiv {
       display: block;
   }
   
-  button, input[type="text"] {
-    padding: 5px;
+  button, input[type="date"], input[type="float"] {
+    margin: 5px;
+    padding: 2px;
   }
   
   button:hover {
+    cursor: pointer;
+  }
+
+  .menuItem:hover {
     cursor: pointer;
   }
   
@@ -61,6 +71,12 @@
   .container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 15px;
+    display: block;
+  }
+
+  .container h1 {
+      text-align: center;
   }
   
 .menuPopUp {
