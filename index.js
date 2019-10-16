@@ -161,6 +161,8 @@ function displayResults(responseJson) {
       //`<form method="get" action="${responseJson.url}">
       //  <button type="submit">Download Image</button>
       //</form>` + 
+      `<a href="${responseJson.url}" download>DownloadImage</a>` + 
+
       `</li>`
     )
   $('#results').removeClass('hidden');
