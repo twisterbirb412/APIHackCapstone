@@ -5,7 +5,7 @@ let dateCounter = 0;
 const apiKey = "zvU1EvdUp6guk0I0PMIqZ5jysg6viR7CarxExhh1"
 
 
-const searchURL = 'https://api.nasa.gov/planetary/earth/imagery';
+const searchURL = 'https://api.nasa.gov/planetary/earth/imagery/';
 
 
 function watchAddButton() {
