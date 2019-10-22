@@ -53,7 +53,7 @@ function addDateInput() {
 
     $('.dateInputArea').append(
         `<div class="dateDiv">` + 
-       ` <label for="max-results">Date</label>`+
+       ` <label for="date` + dateCounter + `>Date</label>`+
         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
         `</div>` 
     );
@@ -67,7 +67,7 @@ function resetDateInputs() {
 
     $('.dateInputArea').append(
         `<div class="dateDiv">` + 
-        ` <label for="max-results">Date</label>`+
+        ` <label for="date` + dateCounter + `">Date</label>`+
          `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
          `</div>` 
      );
@@ -158,9 +158,6 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
       `<p>Image Date: ${responseJson.date}</p>` + 
-      //`<form method="get" action="${responseJson.url}">
-      //  <button type="submit">Download Image</button>
-      //</form>` + 
       `<a href="${responseJson.url}" download>DownloadImage</a>` + 
 
       `</li>`
