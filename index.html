@@ -7,47 +7,52 @@
     <title>Satellite Imagery Search</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src='moment.js'></script>
 </head>
 <body>
-    <div class="menuBar" role="navigation">
-        <h1 class="title">Satellite Image Locator</h1>
-        <p class='about menuItem'>About</p>
-    </div>
-    <div class='menuPopUp hidden'></div>
-    <div class='banner'>
-        <img class='banner-img' src="https://geocento.com/wp-content/uploads/2015/07/satellite-eosb-image-indus-river-pakistan-geocento-earth-imaging.jpg" alt="banner image">
-    </div>
-    <div class="container">
-        
-        <p>Use satellite imagery to explore how land use changes over time.</p>
-        <form id="js-form">
+    <header class="header">
+        <div class="menuBar" role="navigation">
+            <h1 class="title">Satellite Image Locator</h1>
+            <p class='about menuItem'>About</p>
+        </div>
+        <div class='menuPopUp hidden'></div>
+        <div class='banner'>
+            <img class='banner-img' src="https://geocento.com/wp-content/uploads/2015/07/satellite-eosb-image-indus-river-pakistan-geocento-earth-imaging.jpg" alt="banner image">
+        </div>
+    </header>
+    <main>
+        <div class="container">
             
-            <label for="js-search-term">Latitude</label>
-            <input type="float" name="search-lat" id="js-search-lat" value="40.1" >
-            <label for="js-search-term">Longitude</label>
-            <input type="float" name="search-long" id="js-search-long" value="-86.0">
+            <p>Use satellite imagery to explore how land use changes over time.</p>
+            <form id="js-form">
+                
+                <label for="js-search-term">Latitude</label>
+                <input type="float" name="search-lat" id="js-search-lat" value="40.1" >
+                <label for="js-search-term">Longitude</label>
+                <input type="float" name="search-long" id="js-search-long" value="-86.0">
 
-            <div class="dateInputArea">
-                <div class="dateDiv">
-                    <label for="date0">Date</label>
-                    <input type="date" name="date" value="2014-02-20" id="date0" required>
+                <div class="dateInputArea">
+                    <div class="dateDiv">
+                        <label for="date0">Date</label>
+                        <input type="date" name="date" value="2014-02-20" id="date0" required>
+                    </div>
                 </div>
-            </div>
 
-            <button type="submit" class="addButton">Add date</button>
+                <button type="submit" class="addButton">Add date</button>
 
-            <button type="submit" class="submitButton">Search</button>
-        </form>
-
+                <button type="submit" class="submitButton">Search</button>
+            </form>
 
 
-        <p id="js-error-message" class="error-message"></p>
-        <section id="results" class="hidden">
-          <h2>Search results</h2>
-          <ul id="results-list">
-          </ul>
-        </section>
-    </div>
+
+            <p id="js-error-message" class="error-message"></p>
+            <section id="results" class="hidden">
+            <h2>Search results</h2>
+            <ul id="results-list">
+            </ul>
+            </section>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>

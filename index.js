@@ -158,7 +158,7 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
       `<p>Image Date: ${responseJson.date}</p>` + 
-      `<a href="${responseJson.url}" download>DownloadImage</a>` + 
+      `<a href="${responseJson.url}" download>Download Image</a>` + 
 
       `</li>`
     )
