@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Satellite Imagery Search</title>
+    <title>Satellite Imagery Timetraveler</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src='moment.js'></script>
@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <div class="menuBar" role="navigation">
-            <h1 class="title">Satellite Image Locator</h1>
+            <h1 class="title">Satellite Image Timetraveler</h1>
             <p class='about menuItem'>About</p>
         </div>
         <div class='menuPopUp hidden'></div>
@@ -22,8 +22,10 @@
     </header>
     <main>
         <div class="container">
-            
-            <p>Use satellite imagery to explore how land use changes over time.</p>
+            <div class="instructions">
+                <p>Use satellite imagery to explore how land use changes over time.</p>
+                <p>Enter GPS coordinates and dates (click Add Date for multiple!) to compare </p>
+            </div>
             <form id="js-form">
                 
                 <label for="js-search-term">Latitude</label>
@@ -34,7 +36,11 @@
                 <div class="dateInputArea">
                     <div class="dateDiv">
                         <label for="date0">Date</label>
-                        <input type="date" name="date" value="2014-02-20" id="date0" required>
+                        <input type="date" name="date" value="2014-08-20" id="date0" required>
+                    </div>
+                    <div class="dateDiv">
+                        <label for="date1">Date</label>
+                        <input type="date" name="date" value="2015-02-20" id="date1" required>
                     </div>
                 </div>
 

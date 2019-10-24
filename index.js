@@ -1,6 +1,6 @@
 'use strict';
 
-let dateCounter = 0;
+let dateCounter = 1;
 
 const apiKey = "zvU1EvdUp6guk0I0PMIqZ5jysg6viR7CarxExhh1"
 
@@ -12,6 +12,7 @@ function watchAddButton() {
     $('.addButton').on('click', event => {
         event.preventDefault();
         addDateInput();
+        console.log("watchAddButton");
     })
 }
 
@@ -50,13 +51,15 @@ function okayClick() {
 
 function addDateInput() {
     dateCounter++;
+    console.log("addDateInput");
 
     $('.dateInputArea').append(
         `<div class="dateDiv">` + 
-       ` <label for="date` + dateCounter + `>Date</label>`+
+       ` <label for="date"` + dateCounter + `>Date</label>`+
         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
         `</div>` 
     );
+    console.log("addDateInput complete");
 }
 
 function resetDateInputs() {
@@ -65,12 +68,14 @@ function resetDateInputs() {
 
     $('.dateInputArea').empty();
 
+    for (let i=0; i < 2; i++) {
     $('.dateInputArea').append(
         `<div class="dateDiv">` + 
         ` <label for="date` + dateCounter + `">Date</label>`+
-         `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
+         `<input type="date" name="date" value="" id="date` + dateCounter + `" required>` + 
          `</div>` 
      );
+    }
 }
 
 

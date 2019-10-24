@@ -125,6 +125,10 @@ li, img {
   max-width: 100%;
 }
 
+.instructions {
+  padding: 15px;
+}
+
 .container h1 {
     text-align: center;
 }
