@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Satellite Imagery Timetraveler</title>
+    <title>EarthArchive</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src='moment.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Electrolize|Oswald&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="menuBar" role="navigation">
-            <h1 class="title">Satellite Image Timetraveler</h1>
+            <div class="headliner">
+                <h1 class="title">EarthArchive</h1>
+                <h2 class="subtitle">Exploring Change Over Time with Satellite Imagery</h2>
+             </div>
             <p class='about menuItem'>About</p>
         </div>
-        <div class='menuPopUp hidden'></div>
+        <div class='menuPopUp hidden'>
+            <div class="menuScreen">
+                    <h1>About</h1>
+                    <ul>
+                        <p>EarthArchive was created to give users easy access to pan-sharpened Landsat 8 satellite imagery for visual comparison of changes in land over time.</p>
+                        <p>How to use:</p>
+                        <ul>
+                            <li>Enter longitude and Latitude in decimal form (negative values for S latitude or W longitude).</p>
+                            <li>Enter search dates in MM/DD/YYYY format.  Click the "Add Date" button to search for additional dates.</li>
+                            <li>Click Search to retrieve images. The exact date requested may not be available, so the image with the closest date will be supplied.</p>
+                        </ul>
+                        <p>Imagery sourced from NASA API archive.  For more information visit <a href="https://api.nasa.gov">NASA's Open API</a> website.</p>
+                            
+                    </ul> 
+                    <button type="submit" class="okayButton">Okay</button>
+                </div>
+        </div>
         <div class='banner'>
             <img class='banner-img' src="https://geocento.com/wp-content/uploads/2015/07/satellite-eosb-image-indus-river-pakistan-geocento-earth-imaging.jpg" alt="banner image">
         </div>
@@ -23,8 +43,7 @@
     <main>
         <div class="container">
             <div class="instructions">
-                <p>Use satellite imagery to explore how land use changes over time.</p>
-                <p>Enter GPS coordinates and dates (click Add Date for multiple!) to compare </p>
+                <p>Enter GPS coordinates and dates to view how land changes over time.  Click the Add Date button to search additional dates.</p>
             </div>
             <form id="js-form">
                 

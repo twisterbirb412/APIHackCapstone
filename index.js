@@ -172,23 +172,10 @@ function displayResults(responseJson) {
 
 function aboutScreenPopUp() {
     $('.menuPopUp').removeClass('hidden');
-
-    $('.menuPopUp').append(
-        `<div class="menuScreen">` + 
-            `<h1>About</h1>` + 
-            `<p>This is where I will put detailed instructions on the purpose of this page and how to use it</p>` +
-            `<p>Longitude and Latitude are entered in decimal form (- values for W or S values)</p>` + 
-            `<button type="submit" class="okayButton">Okay</button>` + 
-        `</div>`
-    );
 }
 
 function clearScreenPopUp() {
-    $('.menuPopUp').empty();
-
     $('.menuPopUp').addClass('hidden');
-
-    document.removeEventListener("on", clearScreenPopUp, false);
 }
 
 function runPage() {

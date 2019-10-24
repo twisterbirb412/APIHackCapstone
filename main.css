@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 header {
@@ -16,24 +16,34 @@ header {
 
 main {
   font-size: 18px;
-  color: #444;
+  color: black;
   line-height: 1.5;
   margin-left: 5%;
 }
 
-.title {
-  position: absolute;
+.headliner {
+  margin-left: 10%;
 }
 
+.title {
+  font-size: 45px;
+  font-family: 'Electrolize', sans-serif;
+
+}
+
+.subtitle {
+  font-size: 25px;
+  color: gray;
+}
+
+
 .menuBar {
-  width: 100%;
   height: 15%;
 }
 
 .menuBar * {
   text-decoration: none;
   display: block;
-  color: black;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -41,20 +51,31 @@ main {
 .menuItem {
   position: relative;
   text-align: right;
-  margin-right: 5%;
+  margin-right: 10%;
   font-size: 20px;
+}
+
+.menuItem:hover {
+  color: darkcyan;
 }
 
 .menuBar {
   height: 2%;
-  width: 100%;
   margin-top: 0;
   background-color: white;
   padding: 2%;
 }
 
+.menuScreen p, li, ul {
+  font-size: 20px;
+}
+
+.menuScreen li {
+  list-style-type: square;
+}
+
 .banner-img {
-  height: 60px;
+  height: 80px;
   width: 100%;
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
@@ -71,8 +92,12 @@ main {
   text-align: center;
 }
 
+.container p {
+  font-size: 22px;
+}
+
 p, label {
-  color: darkslategrey;
+  color: black;
 }
 
 form {
@@ -98,7 +123,6 @@ input[type="date"], input[type="float"] {
 
 button {
   padding: 5px;
-  padding: 2px;
 }
 
 
@@ -107,23 +131,10 @@ button:hover {
   cursor: pointer;
 }
 
-.menuItem:hover {
+.about:hover {
   cursor: pointer;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  padding: 5%;
-}
-
-li, img {
-  max-width: 100%;
-}
 
 .instructions {
   padding: 15px;
@@ -134,18 +145,27 @@ li, img {
 }
   
 .menuPopUp {
-    position: absolute;
-    width: 90%;
     height: auto;
-    left: 5%;
-    top: 5%;
-    background-color: lightgray;
-    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    background-color: whitesmoke;
+    border: 2px solid lightgray;
+    z-index: 1;
+    padding: 5%;
+    padding-bottom: 10%;
 }
 
+.menuScreen p {
+  margin: 10px;
+}
+
+
 .menuScreen button {
-    margin-left: 90%;
-    margin-bottom: 10%;
+    position: absolute;
+    right: 7%;
+    bottom: 7%; 
+    padding: 10px;
 }
 
 .menuScreen h1 {
@@ -164,18 +184,32 @@ li, img {
   /* Smartphones (portrait and landscape) ----------- */
   @media screen and (max-width: 520px) {
 
+    .menuPopUp {
+      width: 90%;
+      margin-left: -45%;
+      
+    }
+
   }
 
   /* iPads (portrait and landscape) ----------- */
 @media screen and (min-width: 521px) and (max-width: 1024px) {
 
-
+  .menuPopUp {
+    width: 70%;
+    margin-left: -35%;
+    
+  }
 
 }
 
   /* Desktops and laptops ----------- */
   @media screen and (min-width: 1024px) {
 
-
+    .menuPopUp {
+      width: 60%;
+      margin-left: -30%;
+      
+    }
 
   }
