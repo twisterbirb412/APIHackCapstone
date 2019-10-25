@@ -2,6 +2,8 @@ Application Name: Earth Archive
 Live Page: https://github.com/twisterbirb412/EarthArchive/
 Repo Page: https://twisterbirb412.github.io/EarthArchive/
 
+![Main Search Desktop Size](Images/apiHack_mainpage.png)
+![Example Results Mobile Size](Images/apiHack_mobileResults.png)
 
 
 Summary:  EarthArchive was created to give users easy access to pan-sharpened Landsat 8 satellite imagery for visual comparison of changes in land over time.
