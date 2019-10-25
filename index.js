@@ -56,7 +56,7 @@ function addDateInput() {
     $('.dateInputArea').append(
         `<div class="dateDiv">` + 
        ` <label for="date"` + dateCounter + `>Date</label>`+
-        `<input type="date" name="date" value="2014-06-20" id="date` + dateCounter + `" required>` + 
+        `<input type="date" name="date" value="" id="date` + dateCounter + `" required>` + 
         `</div>` 
     );
     console.log("addDateInput complete");
@@ -159,15 +159,21 @@ function displayResults(responseJson) {
   // if there are previous results, remove them
   console.log(responseJson);
 
+  let dateAsAMoment = moment.utc(responseJson.date);
+  console.log(dateAsAMoment);
+
   //create html text to display the image
     $('#results-list').append(
       `<li><img src="${responseJson.url}" alt="Satellite image from + ${responseJson.date}" >` + 
-      `<p>Image Date: ${responseJson.date}</p>` + 
+      `<p>Image Date: ${dateAsAMoment}</p>` + 
       `<a href="${responseJson.url}" download>Download Image</a>` + 
 
       `</li>`
     )
   $('#results').removeClass('hidden');
+
+  console.log(responseJson.date);
+
 }
 
 function aboutScreenPopUp() {

@@ -50,9 +50,9 @@ main {
 
 .menuItem {
   position: relative;
-  text-align: right;
-  margin-right: 10%;
+  left: 85%;
   font-size: 20px;
+  width: 10%;
 }
 
 .menuItem:hover {
@@ -66,7 +66,7 @@ main {
   padding: 2%;
 }
 
-.menuScreen p, li, ul {
+.menuScreen p, .menuScreen li, .menuScreen ul {
   font-size: 20px;
 }
 
@@ -86,7 +86,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   border: 1px solid whitesmoke;
-  width: 85%;
+  width: 80%;
   padding: 15px;
   display: block;
   text-align: center;
@@ -94,6 +94,10 @@ main {
 
 .container p {
   font-size: 22px;
+}
+
+.results-list li {
+  text-decoration: none;
 }
 
 p, label {
@@ -124,8 +128,6 @@ input[type="date"], input[type="float"] {
 button {
   padding: 5px;
 }
-
-
 
 button:hover {
   cursor: pointer;
@@ -160,26 +162,36 @@ button:hover {
   margin: 10px;
 }
 
-
-.menuScreen button {
-    position: absolute;
-    right: 7%;
-    bottom: 7%; 
-    padding: 10px;
-}
-
 .menuScreen h1 {
     text-align: center;
 }
 
+.results-list {
+  padding: 15px;
+}
 
-  .error-message {
-      color: red;
-  }
-  
-  .hidden {
-    display: none;
-  }
+#results li {
+  padding: 15px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.error-message {
+    color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.container img {
+  max-width: 80%;
+}
+
+.container h2 {
+  padding: 15px;
+  font-size: 22px;
+}
 
   /* Smartphones (portrait and landscape) ----------- */
   @media screen and (max-width: 520px) {
@@ -189,6 +201,13 @@ button:hover {
       margin-left: -45%;
       
     }
+
+    .menuScreen button {
+      position: absolute;
+      right: 7%;
+      bottom: 3%; 
+      padding: 10px;
+  }
 
   }
 
@@ -201,6 +220,13 @@ button:hover {
     
   }
 
+  .menuScreen button {
+    position: absolute;
+    right: 7%;
+    bottom: 5%; 
+    padding: 10px;
+}
+
 }
 
   /* Desktops and laptops ----------- */
@@ -211,5 +237,12 @@ button:hover {
       margin-left: -30%;
       
     }
+
+    .menuScreen button {
+      position: absolute;
+      right: 7%;
+      bottom: 7%; 
+      padding: 10px;
+  }
 
   }
